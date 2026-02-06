@@ -75,7 +75,7 @@ func (v *Verifier) Verify(ctx context.Context, tokenString string) (*Verificatio
 	// Verify audience if configured
 	if v.audience != "" {
 		valid := false
-		if aud, err := claims.RegisteredClaims.GetAudience(); err == nil {
+		if aud, err := claims.GetAudience(); err == nil {
 			for _, a := range aud {
 				if a == v.audience {
 					valid = true

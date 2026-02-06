@@ -103,7 +103,7 @@ func (f *JWKSFetcher) refresh(ctx context.Context) error {
 	if err != nil {
 		return NewValidationError(ErrJWKSFetch, err.Error())
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		return NewValidationError(ErrJWKSFetch, fmt.Sprintf("HTTP %d", resp.StatusCode))

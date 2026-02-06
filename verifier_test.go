@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/example/gha-auth/internal/testutil"
+	"github.com/dev-shimada/gha-auth/internal/testutil"
 )
 
 func TestVerifier_Verify(t *testing.T) {
